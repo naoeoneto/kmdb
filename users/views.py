@@ -1,6 +1,6 @@
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.generics import ListCreateAPIView
-from users.permissions import CustomPermission
+from users.permissions import IsAdmin
 
 from .models import User
 from .serializers import UserSerializer
@@ -8,7 +8,7 @@ from .serializers import UserSerializer
 
 class UserView(ListCreateAPIView):
     authentication_classes = [JWTAuthentication]
-    permission_classes = [CustomPermission]
+    permission_classes = [IsAdmin]
     
     serializer_class = UserSerializer
 
