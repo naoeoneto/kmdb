@@ -12,5 +12,4 @@ class MovieView(ListCreateAPIView):
     serializer_class = MovieSerializer
 
     def perform_create(self, serializer):
-        print("oi")
         return serializer.save(user=self.request.user)
